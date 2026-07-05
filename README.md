@@ -36,31 +36,12 @@ submission/
 
 Run these commands from the `submission` directory.
 
-### Windows PowerShell
-
 ```powershell
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
-Copy-Item .env.example .env
-New-Item -ItemType Directory -Force ..\tarot_project\graphrag-project-new\output | Out-Null
-Copy-Item .\graphrag\* ..\tarot_project\graphrag-project-new\output -Recurse -Force
 ```
 
 Edit `.env` and replace `YOUR API KEY` with your Google API key.
 
-### macOS / Linux
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-cp .env.example .env
-mkdir -p ../tarot_project/graphrag-project-new/output
-cp -R graphrag/. ../tarot_project/graphrag-project-new/output/
-```
-
-Edit `.env` and replace `YOUR API KEY` with your Google API key.
 
 ## Run CLI
 
@@ -74,26 +55,6 @@ python -m app.cli --query "How is my love life today? My sign is Gemini." --card
 python -m app.web_server
 ```
 
-Then open:
-
-```text
-http://127.0.0.1:7860
-```
+Then open: http://127.0.0.1:7860
 
 The Web UI supports first readings, follow-up questions, and exiting the current session.
-
-## Gemini Configuration
-
-Use an AI Studio key in `.env`:
-
-```text
-GOOGLE_API_KEY=your_ai_studio_key
-```
-
-Or configure Vertex AI:
-
-```text
-GOOGLE_GENAI_USE_VERTEXAI=true
-GOOGLE_CLOUD_PROJECT=your_project
-GOOGLE_CLOUD_LOCATION=global
-```
