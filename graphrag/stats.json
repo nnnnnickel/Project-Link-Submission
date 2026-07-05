@@ -1,0 +1,48 @@
+{
+    "total_runtime": 480.92315578460693,
+    "num_documents": 2,
+    "update_documents": 0,
+    "input_load_time": 0,
+    "workflows": {
+        "load_input_documents": {
+            "overall": 0.06568455696105957
+        },
+        "create_base_text_units": {
+            "overall": 0.06832218170166016
+        },
+        "create_final_documents": {
+            "overall": 0.03499126434326172
+        },
+        "extract_graph": {
+            "overall": 244.03096461296082
+        },
+        "finalize_graph": {
+            "overall": 0.08292198181152344
+        },
+        "extract_covariates": {
+            "overall": 0.0011577606201171875
+        },
+        "create_communities": {
+            "overall": 0.1456470489501953
+        },
+        "create_final_text_units": {
+            "overall": 0.06580829620361328
+        },
+        "create_community_reports": {
+            "overall": 229.2651925086975
+        },
+        "generate_text_embeddings": {
+            "overall": 7.158623933792114
+        }
+    },
+    "postprocess": {
+        "learntarot_results_json": "input/learntarot_results.json",
+        "learntarot_results_text": "input/learntarot_results.txt",
+        "element_entities": [
+            "AIR",
+            "EARTH",
+            "FIRE",
+            "WATER"
+        ]
+    }
+}

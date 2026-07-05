@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Agentic Tarot Reader</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="control-panel" aria-label="Tarot controls">
+        <div class="brand-row">
+          <div class="mark" aria-hidden="true">A</div>
+          <div>
+            <h1>Agentic Tarot</h1>
+            <p>Gemini workflow reading</p>
+          </div>
+        </div>
+
+        <form id="reading-form" class="reading-form">
+          <label for="question">问题</label>
+          <textarea id="question" name="question" rows="4" placeholder="例如：我今天的感情状态如何？我是 Gemini。" required></textarea>
+
+          <label for="cards">牌面</label>
+          <div class="cards-source-row" role="group" aria-label="牌面来源">
+            <button type="button" id="draw-source" class="source-button active">🔮 抽牌</button>
+            <button type="button" id="manual-source" class="source-button">✍️ 输入牌组</button>
+          </div>
+
+          <div id="draw-panel" class="draw-panel">
+            <div class="draw-controls">
+              <button type="button" id="draw-button" class="draw-button">🔮 抽一张牌</button>
+            </div>
+            <div id="drawn-cards" class="drawn-cards" aria-live="polite">
+              <p class="draw-hint">点击「抽一张牌」，可连续抽取，抽几张解读几张</p>
+            </div>
+            <p id="cards-summary" class="cards-summary" hidden></p>
+          </div>
+
+          <textarea id="cards" name="cards" rows="4" class="manual-cards hidden" placeholder="例如：The Moon, The Empress reversed, Wheel of Fortune"></textarea>
+
+          <div class="mode-row" role="group" aria-label="Mode">
+            <button type="button" id="new-reading" class="mode-button active">新解读</button>
+            <button type="button" id="followup" class="mode-button">追问</button>
+          </div>
+
+          <div class="action-row">
+            <button type="submit" id="submit-button" class="primary-button">发送</button>
+            <button type="button" id="exit-button" class="ghost-button">退出</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="chat-panel" aria-label="Tarot conversation">
+        <div class="chat-header">
+          <div>
+            <h2>解牌记录</h2>
+            <p id="status-text">等待提问</p>
+          </div>
+          <div class="header-actions">
+            <button type="button" id="help-button" class="help-button" aria-haspopup="dialog">? 使用说明</button>
+            <div class="spread-preview" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </div>
+
+        <div id="chat-log" class="chat-log">
+          <article class="empty-state">
+            <h3>开始一次读牌</h3>
+            <p>输入问题和牌面后发送。第一次需要牌；追问可以只输入问题。</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <div id="intro-overlay" class="intro-overlay" role="dialog" aria-modal="true" aria-labelledby="intro-title">
+      <div class="intro-backdrop" data-close-intro></div>
+      <div class="intro-modal">
+        <button type="button" class="intro-close" data-close-intro aria-label="关闭说明">✕</button>
+        <div class="intro-mark" aria-hidden="true">✦</div>
+        <h2 id="intro-title">欢迎使用 Agentic Tarot</h2>
+        <p class="intro-sub">一个由 Agent 驱动的塔罗解读小工具，先看看怎么用：</p>
+        <ul class="intro-list">
+          <li>
+            <span class="intro-icon">💬</span>
+            <div><strong>提出问题</strong><br />在左侧「问题」框里写下你想咨询的事情。</div>
+          </li>
+          <li>
+            <span class="intro-icon">🔮</span>
+            <div><strong>抽牌 或 输入牌组</strong><br />可以点「抽一张牌」连续抽取（抽几张解读几张），也可以切换到「输入牌组」手动填写已有的牌面。</div>
+          </li>
+          <li>
+            <span class="intro-icon">🔁</span>
+            <div><strong>新解读 / 追问</strong><br />第一次提问用「新解读」；得到解读后可以切到「追问」继续对话，Agent 会记得上下文。</div>
+          </li>
+          <li>
+            <span class="intro-icon">🚪</span>
+            <div><strong>退出</strong><br />聊完之后点「退出」结束本次会话、清空记忆，页面会自动尝试关闭；如果浏览器拦截了自动关闭，请手动关闭该页面。</div>
+          </li>
+        </ul>
+        <button type="button" class="intro-start" data-close-intro>开始使用</button>
+      </div>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,5 @@
+schema_version: "1"
+name: google-capstone
+agent_directory: app
+description: Google ADK-compatible tarot reader capstone project.
+prototype: true

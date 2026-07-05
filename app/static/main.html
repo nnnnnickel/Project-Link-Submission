@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Agentic Tarot Reader</title>
+    <link rel="stylesheet" href="/main.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="control-panel" aria-label="Tarot controls">
+        <div class="brand-row">
+          <div class="mark" aria-hidden="true">A</div>
+          <div>
+            <h1>Agentic Tarot</h1>
+            <p>Gemini workflow reading</p>
+          </div>
+        </div>
+
+        <form id="reading-form" class="reading-form">
+          <label for="question">Question</label>
+          <textarea id="question" name="question" rows="4" placeholder="Example: How is my love life today?" required></textarea>
+
+          <label for="cards">Cards</label>
+          <div class="cards-source-row" role="group" aria-label="Card source">
+            <button type="button" id="draw-source" class="source-button active">🔮 Draw Cards</button>
+            <button type="button" id="manual-source" class="source-button">✍️ Enter Cards</button>
+          </div>
+
+          <div id="draw-panel" class="draw-panel">
+            <div class="draw-controls">
+              <button type="button" id="draw-button" class="draw-button">🔮 Draw a Card</button>
+            </div>
+            <div id="drawn-cards" class="drawn-cards" aria-live="polite">
+              <p class="draw-hint">Click "Draw a Card" as many times as you like — read as many as you draw</p>
+            </div>
+            <p id="cards-summary" class="cards-summary" hidden></p>
+          </div>
+
+          <textarea id="cards" name="cards" rows="4" class="manual-cards hidden" placeholder="Example: The Moon, The Empress reversed, Wheel of Fortune"></textarea>
+
+          <div class="mode-row" role="group" aria-label="Reading mode">
+            <button type="button" id="new-reading" class="mode-button active">New Reading</button>
+            <button type="button" id="followup" class="mode-button">Follow Up</button>
+          </div>
+
+          <div class="action-row">
+            <button type="submit" id="submit-button" class="primary-button">Send</button>
+            <button type="button" id="exit-button" class="ghost-button">Exit</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="chat-panel" aria-label="Tarot conversation">
+        <div class="chat-header">
+          <div>
+            <h2>Reading Thread</h2>
+            <p id="status-text">Ready for a question</p>
+          </div>
+          <div class="header-actions">
+            <button type="button" id="help-button" class="help-button" aria-haspopup="dialog">? How it Works</button>
+            <div class="spread-preview" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </div>
+
+        <div id="chat-log" class="chat-log">
+          <article class="empty-state">
+            <h3>Begin a reading</h3>
+            <p>Enter a question and cards for the first reading. Follow-ups can use only a question.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <div id="intro-overlay" class="intro-overlay" role="dialog" aria-modal="true" aria-labelledby="intro-title">
+      <div class="intro-backdrop" data-close-intro></div>
+      <div class="intro-modal">
+        <button type="button" class="intro-close" data-close-intro aria-label="Close instructions">✕</button>
+        <div class="intro-mark" aria-hidden="true">✦</div>
+        <h2 id="intro-title">Welcome to Agentic Tarot</h2>
+        <p class="intro-sub">A quick look at how this reading tool works:</p>
+        <ul class="intro-list">
+          <li>
+            <span class="intro-icon">💬</span>
+            <div><strong>Ask a question</strong><br />Type what you'd like guidance on in the "Question" box.</div>
+          </li>
+          <li>
+            <span class="intro-icon">🔮</span>
+            <div><strong>Draw Cards or Enter Cards</strong><br />Click "Draw a Card" as many times as you like — read as many as you draw — or switch to "Enter Cards" to type in a spread you already have.</div>
+          </li>
+          <li>
+            <span class="intro-icon">🔁</span>
+            <div><strong>New Reading / Follow Up</strong><br />Use "New Reading" for your first question, then switch to "Follow Up" to keep chatting — the Agent remembers the context.</div>
+          </li>
+          <li>
+            <span class="intro-icon">🚪</span>
+            <div><strong>Exit</strong><br />Click "Exit" when you're done to close the session and clear its memory — the page will try to close itself automatically. If your browser blocks that, just close the tab manually.</div>
+          </li>
+        </ul>
+        <button type="button" class="intro-start" data-close-intro>Get Started</button>
+      </div>
+    </div>
+
+    <script src="/main.js"></script>
+  </body>
+</html>
