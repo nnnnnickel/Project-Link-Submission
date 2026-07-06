@@ -1,6 +1,6 @@
 # Agentic Tarot Reader
 
-**This repository is for submissions to the AI Agents: Intensive Vibe Coding Capstone Project.**
+**This repository is for submissions to the Kaggle's AI Agents: Intensive Vibe Coding Capstone Project.**
 
 We built a Google ADK-compatible tarot reader with Gemini generator, GraphRAG parquet retrieval, JSON session memory, Skill.md guidance, and a local Web UI.
 
