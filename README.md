@@ -57,6 +57,6 @@ python -m app.cli --query "How is my love life today? My sign is Gemini." --card
 python -m app.web_server
 ```
 
-Then open: http://127.0.0.1:7860
+Then open the local url.
 
 The Web UI supports first readings, follow-up questions, and exiting the current session.
