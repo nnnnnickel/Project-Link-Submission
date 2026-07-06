@@ -42,7 +42,15 @@ Run these commands from the `submission` directory.
 pip install -r requirements.txt
 ```
 
-Edit `.env` and replace `YOUR API KEY` with your Google API key.
+Create `.env` and add "GOOGLE_API_KEY=your_api_key".
+
+Optional Vertex AI mode:
+
+"GOOGLE_GENAI_USE_VERTEXAI=true"
+
+"GOOGLE_CLOUD_PROJECT=your_project_id"
+
+"GOOGLE_CLOUD_LOCATION=global"
 
 
 ## Run CLI
